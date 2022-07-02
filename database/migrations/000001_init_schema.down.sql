@@ -1,0 +1,5 @@
+DROP TABLE IF EXISTS "schema_migrations";
+DROP TABLE IF EXISTS "items";
+DROP TABLE IF EXISTS "users";
+DROP TABLE IF EXISTS "inventories";
+DROP TABLE IF EXISTS "roles";

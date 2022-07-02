@@ -1,0 +1,104 @@
+# GraphQL schema example
+#
+# https://gqlgen.com/getting-started/
+
+type User {
+  id: ID!
+  firstName: String!
+  lastName: String!
+  username: String!
+  password: String!
+  rolesId: ID!
+  inventoriesId: ID
+}
+
+type Role {
+  id: ID!
+  title: String!
+}
+
+type Inventory {
+  id: ID!
+  name: String!
+  address: String!
+}
+
+type Item {
+  id: ID!
+  name: String!
+  description: String!
+  status: String!
+  inventoriesId: ID!
+}
+
+input LoginInput {
+  username: String!
+  password: String!
+}
+
+input CreateUserInput {
+  firstName: String!
+  lastName: String!
+  username: String!
+  password: String!
+  rolesId: ID!
+  inventoriesId: ID
+}
+
+input UpdateUserInput {
+  id: ID!
+  firstName: String
+  lastName: String
+  username: String
+  password: String
+  rolesId: ID
+  inventoriesId: ID
+}
+
+input CreateInvInput {
+  name: String!
+  address: String!
+}
+
+input UpdateInvInput {
+  id: ID!
+  name: String
+  address: String
+}
+
+input CreateItemInput {
+  name: String!
+  description: String!
+  status: String!
+}
+
+input UpdateItemInput {
+  id: ID!
+  name: String
+  description: String
+  status: String
+  inventoriesId: ID
+}
+
+type Query {
+  getUsers: [User!]!
+  getInventories: [Inventory!]!
+  getItems: [Item!]!
+  getAllItems: [Item!]!
+  getUserRole: String!
+  getInventoryName: String!
+}
+
+type Mutation {
+  login(Input: LoginInput!): String!
+  createUser(Input: CreateUserInput!): Boolean!
+  updateUser(Input: UpdateUserInput!): Boolean!
+  deleteUser(UserId: ID!): Boolean!
+  createInventory(Input: CreateInvInput!): Boolean!
+  updateInventory(Input: UpdateInvInput!): Boolean!
+  deleteInventory(InventoryId: ID!): Boolean!
+  createItem(Input: CreateItemInput!): Boolean!
+  updateItem(Input: UpdateItemInput!): Boolean!
+  deleteItem(ItemId: ID!): Boolean!
+}
+
